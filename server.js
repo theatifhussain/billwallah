@@ -8,18 +8,48 @@ const express = require('express');
 const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
-const fs = require('fs');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const rateLimit = require('express-rate-limit');
 
 const app = express();
 
+// ImageKit stores uploaded screenshots permanently in the cloud.
+// The private key must stay server-side and must never be exposed to the browser.
+const imageKitClientPromise = import('@imagekit/nodejs').then(({ default: ImageKit }) => {
+  const privateKey = process.env.IMAGEKIT_PRIVATE_KEY || process.env.IMAGEKIT_PRIVATEKEY;
+
+  if (!privateKey) {
+    throw new Error('IMAGEKIT_PRIVATE_KEY is not configured.');
+  }
+
+  return new ImageKit({ privateKey });
+});
+
+async function uploadToImageKit(file, folder) {
+  const imageKit = await imageKitClientPromise;
+
+  const extension = path.extname(file.originalname).toLowerCase() || '.jpg';
+  const safeBaseName = path.basename(file.originalname, extension)
+    .replace(/[^a-zA-Z0-9_-]/g, '_')
+    .slice(0, 80) || 'screenshot';
+
+  const result = await imageKit.files.upload({
+    file: file.buffer.toString('base64'),
+    fileName: `${Date.now()}-${safeBaseName}${extension}`,
+    folder,
+    useUniqueFileName: true
+  });
+
+  if (!result.url) {
+    throw new Error('ImageKit upload did not return an image URL.');
+  }
+
+  return result.url;
+}
+
 const PORT = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET || 'dev-secret-change-me';
-
-const uploadDir = path.join(__dirname, 'uploads');
-fs.mkdirSync(uploadDir, { recursive: true });
 
 
 // =========================
@@ -112,32 +142,11 @@ const Submission = mongoose.model('Submission', submissionSchema);
 // MULTER UPLOAD CONFIG
 // =========================
 
-const storage = multer.diskStorage({
-
-  destination: (_, __, cb) => {
-    cb(null, uploadDir);
-  },
-
-  filename: (_, file, cb) => {
-
-    const safe = file.originalname.replace(
-      /[^a-zA-Z0-9._-]/g,
-      '_'
-    );
-
-    cb(
-      null,
-      `${Date.now()}-${Math.random()
-        .toString(36)
-        .slice(2, 9)}-${safe}`
-    );
-  }
-
-});
-
+// Keep files in memory only long enough to send them to ImageKit.
+// Nothing is written to the server's local disk.
 const upload = multer({
 
-  storage,
+  storage: multer.memoryStorage(),
 
   limits: {
     fileSize: 5 * 1024 * 1024,
@@ -319,21 +328,26 @@ app.post(
       }
 
 
-      // Create submission
+      // Upload all proofs to ImageKit before saving the submission.
+      // MongoDB stores the permanent ImageKit URLs, not local filenames.
+      const [instagramUrl, youtubeUrl, founderInstagramUrl] = await Promise.all([
+        uploadToImageKit(files.instagramScreenshot[0], '/bill-wallah/proofs'),
+        uploadToImageKit(files.youtubeScreenshot[0], '/bill-wallah/proofs'),
+        uploadToImageKit(files.founderInstagramScreenshot[0], '/bill-wallah/proofs')
+      ]);
+
+      // Create submission with permanent cloud URLs.
       const submission = await Submission.create({
 
         submissionId: makeId(),
 
         mobileNumber,
 
-        instagramScreenshot:
-          files.instagramScreenshot[0].filename,
+        instagramScreenshot: instagramUrl,
 
-        youtubeScreenshot:
-          files.youtubeScreenshot[0].filename,
+        youtubeScreenshot: youtubeUrl,
 
-        founderInstagramScreenshot:
-          files.founderInstagramScreenshot[0].filename
+        founderInstagramScreenshot: founderInstagramUrl
 
       });
 
@@ -702,39 +716,6 @@ app.patch(
 
 
 // =========================
-// ADMIN PROOF IMAGE
-// =========================
-
-app.get(
-  '/api/admin/proof/:filename',
-  adminAuth,
-
-  (req, res) => {
-
-    const safe =
-      path.basename(
-        req.params.filename
-      );
-
-    const p =
-      path.join(
-        uploadDir,
-        safe
-      );
-
-
-    if (!fs.existsSync(p)) {
-      return res.sendStatus(404);
-    }
-
-
-    res.sendFile(p);
-
-  }
-);
-
-
-// =========================
 // ADMIN PAGE
 // =========================
 
@@ -780,11 +761,13 @@ app.get(
 
 console.log('Connecting to MongoDB...');
 
+const MONGO_URI =
+  process.env.MONGODB_URI ||
+  process.env.MONGO_URL ||
+  'mongodb://127.0.0.1:27017/billwallah';
+
 mongoose
-  .connect(
-    process.env.MONGODB_URI ||
-    'mongodb://127.0.0.1:27017/billwallah'
-  )
+  .connect(MONGO_URI)
 
   .then(() => {
 

@@ -20,3 +20,23 @@ A production-oriented Node/Express + MongoDB starter for the Bill Wallah ₹15 m
 - There is deliberately no automatic screenshot verification or automatic payout.
 - For production, use HTTPS, a strong JWT secret, a managed MongoDB instance, object storage for uploads, and a real admin identity provider or rotated credentials.
 - The app-store CTA remains disabled because no official app-store URL was supplied.
+
+## ImageKit storage
+
+Screenshot uploads are now sent directly from the backend to ImageKit. The server does not save screenshots to the local `uploads/` directory. MongoDB stores the ImageKit CDN URL in:
+
+- `instagramScreenshot`
+- `youtubeScreenshot`
+- `founderInstagramScreenshot`
+
+Set `IMAGEKIT_PRIVATE_KEY` in your environment before starting the server.
+
+Install dependencies:
+
+```bash
+npm install
+npm start
+```
+
+The current `@imagekit/nodejs` SDK requires Node.js 20 LTS or newer.
+

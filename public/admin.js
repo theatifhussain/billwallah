@@ -195,22 +195,22 @@ async function openDetail(id) {
 
       <div class="proofs">
         <div class="proof">
-          <a href="/api/admin/proof/${encodeURIComponent(item.instagramScreenshot)}" target="_blank" rel="noopener">
-            <img src="/api/admin/proof/${encodeURIComponent(item.instagramScreenshot)}" alt="Instagram proof">
+          <a href="${esc(item.instagramScreenshot)}" target="_blank" rel="noopener">
+            <img src="${esc(item.instagramScreenshot)}" alt="Instagram proof">
           </a>
           <p>Instagram Proof · Open larger</p>
         </div>
 
         <div class="proof">
-          <a href="/api/admin/proof/${encodeURIComponent(item.youtubeScreenshot)}" target="_blank" rel="noopener">
-            <img src="/api/admin/proof/${encodeURIComponent(item.youtubeScreenshot)}" alt="YouTube proof">
+          <a href="${esc(item.youtubeScreenshot)}" target="_blank" rel="noopener">
+            <img src="${esc(item.youtubeScreenshot)}" alt="YouTube proof">
           </a>
           <p>YouTube Proof · Open larger</p>
         </div>
 
         <div class="proof">
-          <a href="/api/admin/proof/${encodeURIComponent(item.founderInstagramScreenshot)}" target="_blank" rel="noopener">
-            <img src="/api/admin/proof/${encodeURIComponent(item.founderInstagramScreenshot)}" alt="Founder Instagram proof">
+          <a href="${esc(item.founderInstagramScreenshot)}" target="_blank" rel="noopener">
+            <img src="${esc(item.founderInstagramScreenshot)}" alt="Founder Instagram proof">
           </a>
           <p>Founder Instagram Proof · Open larger</p>
         </div>

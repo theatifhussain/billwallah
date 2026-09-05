@@ -1,1272 +1,2704 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#155eef">
-<title>Bill Wallah — Get ₹15</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Complete simple steps and get ₹15 from Bill Wallah.">
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap');
+  <title>Bill Wallah — Get ₹15</title>
 
-:root{
-  --blue:#165DFF;
-  --blue-dark:#0B46C1;
-  --blue-50:#F1F5FF;
-  --blue-100:#DDE8FF;
-  --yellow:#FFC928;
-  --yellow-50:#FFF9E6;
-  --green:#12B76A;
-  --green-50:#ECFDF3;
-  --red:#D92D20;
-  --red-50:#FFF1F0;
-  --ink:#101828;
-  --muted:#667085;
-  --subtle:#98A2B3;
-  --line:#EAECF0;
-  --line-dark:#D0D5DD;
-  --bg:#F7F8FA;
-  --white:#FFFFFF;
-  --shadow:0 4px 18px rgba(16,24,40,.055);
-}
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
-  font-size:14px;
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-button,input{font:inherit}
-button{cursor:pointer}
-a{color:inherit}
-.hidden{display:none!important}
+    :root {
+      --blue: #155EEF;
+      --blue-dark: #0B46C1;
+      --blue-light: #EFF4FF;
 
-/* Mobile-first app shell */
-.wrap{
-  width:min(680px,calc(100% - 20px));
-  margin:0 auto;
-  padding:10px 0 30px;
-}
+      --green: #039855;
+      --green-light: #ECFDF3;
 
-/* Header */
-.brand-row{
-  height:50px;
-  display:flex;
-  align-items:center;
-  gap:9px;
-  margin:0 2px 12px;
-}
-.brand-mark{
-  width:38px;height:38px;
-  border-radius:12px;
-  overflow:hidden;
-  background:#fff;
-  border:1px solid var(--line);
-  flex:none;
-}
-.brand-mark img{width:100%;height:100%;object-fit:cover}
-.brand-row span{
-  font-family:Sora,sans-serif;
-  font-size:16px;
-  font-weight:800;
-  letter-spacing:-.035em;
-}
-.brand-row:after{
-  content:"₹15 REWARD";
-  margin-left:auto;
-  padding:6px 9px;
-  border:1px solid var(--blue-100);
-  background:var(--white);
-  color:var(--blue-dark);
-  border-radius:999px;
-  font-size:8.5px;
-  font-weight:800;
-  letter-spacing:.04em;
-}
+      --yellow: #F79009;
+      --yellow-light: #FFFAEB;
 
-/* Offer hero — flat, editorial, no gradient */
-.hero{
-  position:relative;
-  min-height:275px;
-  overflow:hidden;
-  border-radius:22px;
-  background:var(--blue);
-  margin-bottom:12px;
-  padding:20px 18px;
-  box-shadow:0 9px 24px rgba(22,93,255,.16);
-}
-.hero:before{
-  content:"";
-  position:absolute;
-  width:180px;height:180px;
-  right:-85px;top:-65px;
-  border-radius:50%;
-  background:#2E6CFF;
-}
-.hero:after{
-  content:"";
-  position:absolute;
-  width:130px;height:130px;
-  left:-75px;bottom:-85px;
-  border-radius:50%;
-  background:#0C4BD6;
-}
-.hero-copy{
-  position:relative;
-  z-index:5;
-  max-width:235px;
-  color:#fff;
-}
-.hero-kicker{
-  display:inline-flex;
-  align-items:center;
-  gap:5px;
-  padding:5px 8px;
-  border:1px solid rgba(255,255,255,.32);
-  background:rgba(255,255,255,.10);
-  border-radius:999px;
-  font-size:8.5px;
-  font-weight:800;
-  letter-spacing:.06em;
-}
-.hero h1{
-  font-family:Sora,sans-serif;
-  color:#fff;
-  font-size:30px;
-  line-height:1.04;
-  letter-spacing:-.055em;
-  margin:11px 0 7px;
-}
-.hero p{
-  color:rgba(255,255,255,.84);
-  font-size:11px;
-  line-height:1.5;
-  margin:0;
-}
+      --text: #101828;
+      --text-2: #344054;
+      --muted: #667085;
+      --subtle: #98A2B3;
 
-/* Ticket */
-.paper{
-  position:absolute;
-  z-index:3;
-  right:8px;
-  top:106px;
-  width:181px;
-  height:105px;
-  background:#FFFDF2;
-  color:#15377D;
-  transform:rotate(4deg);
-  clip-path:polygon(0 0,100% 0,100% 92%,96% 100%,91% 93%,86% 100%,81% 93%,76% 100%,71% 93%,66% 100%,61% 93%,56% 100%,51% 93%,46% 100%,41% 93%,36% 100%,31% 93%,26% 100%,21% 93%,16% 100%,11% 93%,6% 100%,0 93%);
-  box-shadow:0 13px 22px rgba(0,0,0,.18);
-  animation:ticket 5s ease-in-out infinite;
-}
-.paper-inner{text-align:center;padding:13px 9px}
-.paper-small{font-size:7.5px;font-weight:900;letter-spacing:.09em;color:#667085}
-.paper-amount{
-  font-family:Sora,sans-serif;
-  font-size:37px;
-  line-height:1;
-  font-weight:800;
-  color:#123B9C;
-  margin:5px 0 4px;
-}
-.paper-free{
-  display:inline-block;
-  background:var(--yellow);
-  color:#182230;
-  padding:3px 11px;
-  border-radius:999px;
-  font-size:9px;
-  font-weight:900;
-}
-.paper-shadow{
-  position:absolute;
-  z-index:1;
-  right:13px;
-  top:114px;
-  width:173px;height:96px;
-  background:rgba(0,0,0,.13);
-  filter:blur(10px);
-  transform:rotate(7deg);
-}
-.tape{
-  position:absolute;
-  z-index:6;
-  right:78px;
-  top:96px;
-  width:43px;height:15px;
-  background:#FFF0AC;
-  opacity:.92;
-  transform:rotate(6deg);
-}
-.hero-coin{
-  position:absolute;
-  z-index:4;
-  right:12px;bottom:12px;
-  width:67px;height:67px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:#F6B800;
-  border:5px solid rgba(255,255,255,.24);
-  box-shadow:0 10px 20px rgba(0,0,0,.18);
-  transform:rotate(7deg);
-  animation:coin 4s ease-in-out infinite;
-}
-.hero-coin:before{
-  content:"₹";
-  font-family:Sora,sans-serif;
-  font-size:31px;
-  font-weight:800;
-  color:#fff;
-}
-.hero-coin:after{
-  content:"";
-  position:absolute;
-  inset:7px;
-  border:2px dashed rgba(255,255,255,.6);
-  border-radius:50%;
-}
-.spark{
-  position:absolute;
-  z-index:6;
-  width:6px;height:6px;
-  background:var(--yellow);
-  transform:rotate(45deg);
-  animation:spark 2.2s infinite;
-}
-.s1{right:21px;top:70px}
-.s2{right:142px;top:31px;width:5px;height:5px;animation-delay:.5s}
-.s3{right:105px;bottom:27px;width:5px;height:5px;animation-delay:1s}
+      --border: #EAECF0;
+      --border-dark: #D0D5DD;
 
-@keyframes ticket{
-  0%,100%{transform:rotate(4deg) translateY(0)}
-  50%{transform:rotate(2deg) translateY(-5px)}
-}
-@keyframes coin{
-  0%,100%{transform:rotate(7deg) translateY(0)}
-  50%{transform:rotate(3deg) translateY(-5px)}
-}
-@keyframes spark{
-  0%,100%{opacity:.3;transform:scale(.7) rotate(45deg)}
-  50%{opacity:1;transform:scale(1.15) rotate(45deg)}
-}
+      --background: #F8FAFC;
+      --white: #FFFFFF;
 
-/* Main verification card */
-.card{
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:18px 15px;
-  box-shadow:var(--shadow);
-}
-.card + .card{margin-top:12px}
-.card:first-of-type{
-  position:relative;
-  overflow:hidden;
-}
-.card:first-of-type:before{
-  content:"";
-  position:absolute;
-  top:0;left:0;right:0;
-  height:3px;
-  background:var(--blue);
-}
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-sm: 9px;
 
-/* Progress */
-.progress{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-bottom:19px;
-}
-.progress-track{
-  height:6px;
-  flex:1;
-  background:#F0F2F5;
-  border-radius:999px;
-  overflow:hidden;
-}
-.progress-fill{
-  height:100%;
-  background:var(--blue);
-  border-radius:999px;
-  transition:width .25s ease;
-}
-.progress-text{
-  font-size:9.5px;
-  font-weight:700;
-  color:var(--subtle);
-  white-space:nowrap;
-}
+      --shadow:
+        0 1px 2px rgba(16, 24, 40, .04),
+        0 4px 14px rgba(16, 24, 40, .04);
+    }
 
-/* Steps */
-.steps{position:relative}
-.step{
-  display:flex;
-  gap:10px;
-}
-.step-rail{
-  width:27px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  flex:none;
-}
-.step-dot{
-  width:27px;height:27px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:#F2F4F7;
-  border:1px solid #E0E4EA;
-  color:#667085;
-  font-family:Sora,sans-serif;
-  font-size:9.5px;
-  font-weight:800;
-  z-index:2;
-}
-.step.done .step-dot{
-  background:var(--blue);
-  border-color:var(--blue);
-  color:#fff;
-}
-.step-line{
-  width:1px;
-  flex:1;
-  min-height:37px;
-  background:#E4E7EC;
-  margin:3px 0;
-}
-.step:last-child .step-line{display:none}
-.step-body{
-  flex:1;
-  min-width:0;
-  padding-bottom:19px;
-}
-.step-title{
-  font-family:Sora,sans-serif;
-  font-size:14px;
-  line-height:1.35;
-  font-weight:800;
-  letter-spacing:-.025em;
-  margin:2px 0 4px;
-}
-.step-desc{
-  color:var(--muted);
-  font-size:11.25px;
-  line-height:1.5;
-  margin:0 0 7px;
-}
-.step-link{
-  display:inline-flex;
-  color:var(--blue-dark);
-  font-size:11px;
-  font-weight:800;
-  text-decoration:none;
-  padding-bottom:1px;
-  border-bottom:1px solid #BFD0FF;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-/* Screenshot upload row */
-.upload-row{
-  min-height:58px;
-  display:flex;
-  align-items:center;
-  gap:9px;
-  margin-top:9px;
-  padding:8px 9px;
-  background:#FAFBFC;
-  border:1px dashed #C9D0DA;
-  border-radius:12px;
-  transition:.16s ease;
-}
-.upload-row:hover,.upload-row.filled{
-  background:var(--blue-50);
-  border-color:#91AEFF;
-}
-.upload-thumb,.upload-placeholder{
-  width:38px;height:38px;
-  border-radius:9px;
-  object-fit:cover;
-  flex:none;
-}
-.upload-placeholder{
-  background:#F2F4F7;
-  border:1px solid var(--line);
-}
-.upload-status{
-  flex:1;
-  min-width:0;
-  color:var(--muted);
-  font-size:10.5px;
-}
-.upload-status b{
-  display:block;
-  color:var(--ink);
-  font-weight:800;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-.upload-btn{
-  background:#fff;
-  color:var(--blue-dark);
-  border:1px solid #C7D6FF;
-  border-radius:8px;
-  padding:7px 9px;
-  font-size:10px;
-  font-weight:800;
-  white-space:nowrap;
-}
-.upload-btn:hover{background:var(--blue);color:#fff}
-input[type=file]{display:none}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* Form */
-.contact-section{
-  border-top:1px solid var(--line);
-  padding-top:20px;
-  margin-top:1px;
-}
-.field-label{
-  display:block;
-  font-size:11.5px;
-  font-weight:800;
-  margin:0 0 6px;
-}
-.field-input{
-  width:100%;
-  height:45px;
-  padding:0 12px;
-  border:1px solid var(--line-dark);
-  border-radius:10px;
-  background:#fff;
-  color:var(--ink);
-  outline:none;
-  font-size:12.5px;
-  transition:.15s;
-}
-.field-input:focus{
-  border-color:var(--blue);
-  box-shadow:0 0 0 3px rgba(22,93,255,.10);
-}
-.field-input:disabled{
-  background:#F2F4F7;
-  color:var(--subtle);
-}
-.field-hint{
-  color:var(--subtle);
-  font-size:9.5px;
-  margin:5px 0 12px;
-}
-.details-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:9px;
-}
-.checkbox{
-  display:flex;
-  align-items:flex-start;
-  gap:8px;
-  color:var(--muted);
-  font-size:10.5px;
-  line-height:1.45;
-  margin-top:13px;
-}
-.checkbox input{
-  width:16px;height:16px;
-  margin:1px 0 0;
-  accent-color:var(--blue);
-  flex:none;
-}
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
 
-/* Reward summary */
-.receipt{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-top:15px;
-  padding:12px 13px;
-  background:var(--yellow-50);
-  border:1px dashed #E5BF32;
-  border-radius:12px;
-}
-.receipt-label{
-  color:#735B16;
-  font-size:10.5px;
-  font-weight:700;
-}
-.receipt-value{
-  color:#A96800;
-  font-family:Sora,sans-serif;
-  font-size:22px;
-  font-weight:800;
-}
-.submit-btn{
-  width:100%;
-  min-height:50px;
-  border:0;
-  border-radius:12px;
-  margin-top:12px;
-  background:var(--blue);
-  color:#fff;
-  font-size:12.5px;
-  font-weight:800;
-  box-shadow:0 8px 18px rgba(22,93,255,.16);
-}
-.submit-btn:hover:not(:disabled){background:var(--blue-dark)}
-.submit-btn:disabled{
-  background:#EAECF0;
-  color:#98A2B3;
-  box-shadow:none;
-  cursor:not-allowed;
-}
-.fine-print{
-  color:var(--subtle);
-  font-size:9px;
-  line-height:1.5;
-  margin-top:9px;
-}
+    button,
+    input {
+      font: inherit;
+    }
 
-/* Status card */
-.status-section{padding:0}
-.status-section h2{
-  font-family:Sora,sans-serif;
-  font-size:18px;
-  letter-spacing:-.035em;
-  margin:0 0 4px;
-}
-.status-section>p{
-  color:var(--muted);
-  font-size:10.5px;
-  line-height:1.45;
-  margin:0 0 12px;
-}
-.status-form{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:7px;
-}
-.status-form input{margin:0}
-.status-form button{
-  grid-column:1/-1;
-  min-height:44px;
-  border:0;
-  border-radius:10px;
-  background:var(--ink);
-  color:#fff;
-  font-size:11.5px;
-  font-weight:800;
-}
-.status-form button:hover{background:#273142}
-.status-result{margin-top:11px}
-.status-card{
-  border:1px solid var(--line);
-  border-radius:11px;
-  overflow:hidden;
-}
-.status-row{
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  padding:10px 11px;
-  border-bottom:1px solid #F0F2F5;
-  font-size:10.5px;
-}
-.status-row:last-child{border-bottom:0}
-.status-row span:first-child{color:var(--muted)}
-.status-row span:last-child,.status-row strong{text-align:right}
-.status-pill{
-  display:inline-flex;
-  padding:3px 8px;
-  border-radius:999px;
-  background:var(--blue-50);
-  color:var(--blue-dark);
-  font-size:9.5px;
-  font-weight:800;
-}
+    button {
+      cursor: pointer;
+    }
 
-/* App promo */
-.app-card{
-  position:relative;
-  overflow:hidden;
-  min-height:96px;
-  margin-top:12px;
-  padding:18px;
-  border-radius:18px;
-  background:#132F78;
-  color:#fff;
-}
-.app-card:after{
-  content:"₹15";
-  position:absolute;
-  right:12px;
-  bottom:-12px;
-  font-family:Sora,sans-serif;
-  font-size:62px;
-  font-weight:800;
-  color:rgba(255,255,255,.08);
-}
-.app-card h2{
-  position:relative;
-  z-index:1;
-  font-family:Sora,sans-serif;
-  font-size:16px;
-  margin:0 0 4px;
-}
-.app-card p{
-  position:relative;
-  z-index:1;
-  color:rgba(255,255,255,.76);
-  font-size:10px;
-  max-width:260px;
-  margin:0;
-}
+    a {
+      color: inherit;
+    }
 
-/* Footer */
-.admin-link-row{
-  margin-top:17px;
-  text-align:center;
-}
-.admin-link-row button{
-  border:0;
-  background:none;
-  color:var(--subtle);
-  font-size:9.5px;
-  padding:0;
-  text-decoration:underline;
-}
-.footer{
-  padding:18px 2px 0;
-  color:var(--subtle);
-  font-size:9.5px;
-}
-.footer strong{
-  font-family:Sora,sans-serif;
-  color:var(--muted);
-}
-.footer-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:7px;
-}
-.footer-links a{text-decoration:none}
+    .hidden {
+      display: none !important;
+    }
 
-/* Success */
-.success-wrap{padding-top:10px}
-.check-mark{
-  width:43px;height:43px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:var(--green-50);
-  border:1px solid #ABEFCA;
-  margin-bottom:16px;
-}
-.success-wrap h2{
-  font-family:Sora,sans-serif;
-  font-size:21px;
-  letter-spacing:-.04em;
-  margin:0 0 6px;
-}
-.success-wrap>p{
-  color:var(--muted);
-  font-size:12px;
-  line-height:1.55;
-  margin:0 0 16px;
-}
-.receipt-detail{
-  border:1px solid var(--line);
-  border-radius:11px;
-  overflow:hidden;
-}
-.receipt-detail-row{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  padding:11px 12px;
-  border-bottom:1px solid #F0F2F5;
-  font-size:10.5px;
-}
-.receipt-detail-row:last-child{border-bottom:0}
-.receipt-detail-row span:first-child{color:var(--muted)}
-.receipt-detail-row span:last-child{font-weight:800;text-align:right}
-.reference-box{
-  margin-top:13px;
-  padding:13px;
-  background:var(--blue-50);
-  border:1px solid var(--blue-100);
-  border-radius:11px;
-}
-.reference-box small{display:block;color:var(--muted);font-size:9.5px}
-.reference-box strong{
-  display:block;
-  color:var(--blue-dark);
-  font-family:Sora,sans-serif;
-  font-size:18px;
-  margin-top:2px;
-}
-.action-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:7px;
-  margin-top:13px;
-}
-.secondary-btn{
-  min-height:44px;
-  border:1px solid var(--line-dark);
-  border-radius:10px;
-  background:#fff;
-  color:var(--blue-dark);
-  font-size:11px;
-  font-weight:800;
-}
+    /* =========================================
+       APP CONTAINER
+    ========================================= */
 
-/* Small phones */
-@media(max-width:380px){
-  .wrap{width:calc(100% - 14px)}
-  .brand-row:after{font-size:8px;padding:6px 8px}
-  .hero{min-height:255px;padding:17px 15px}
-  .hero h1{font-size:27px}
-  .hero p{font-size:10.5px}
-  .paper{width:163px;height:99px;right:5px;top:97px}
-  .paper-amount{font-size:33px}
-  .paper-shadow{right:10px;top:106px;width:157px}
-  .tape{right:70px;top:89px}
-  .hero-coin{width:59px;height:59px}
-  .hero-coin:before{font-size:27px}
-  .card{padding:17px 13px}
-}
-@media(min-width:700px){
-  .wrap{padding-top:22px}
-  .hero{min-height:300px}
-}
+    .page {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 50px;
+    }
 
-/* Motion accessibility */
-@media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{
-    animation-duration:.001ms!important;
-    animation-iteration-count:1!important;
-    scroll-behavior:auto!important;
-  }
-}
-</style>
+    /* =========================================
+       HEADER
+    ========================================= */
 
-</head>
-<body>
-<div id="app"></div>
-<script>
-const LOGO_SRC = "data:image/jpeg;base64,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";
+    .header {
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
 
-const LINKS = {
-  instagram: "https://insta.openinapp.co/u1zr4",
-  youtube: "https://yt.openinapp.co/4haa7",
-  founder: "https://insta.openinapp.co/kxbbn"
-};
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
 
-const STEPS = [
-  {
-    key:"insta",
-    title:"Follow Bill Wallah on Instagram",
-    desc:"Open the profile, tap Follow, then upload a screenshot showing you're following.",
-    link:"Open Instagram",
-    url:LINKS.instagram
-  },
-  {
-    key:"youtube",
-    title:"Subscribe on YouTube",
-    desc:"Open the channel, tap Subscribe, then upload a screenshot of the subscribed button.",
-    link:"Open YouTube",
-    url:LINKS.youtube
-  },
-  {
-    key:"founder",
-    title:"Follow the founder on Instagram",
-    desc:"Follow the founder's account, then upload a screenshot showing you're following.",
-    link:"Open Instagram",
-    url:LINKS.founder
-  }
-];
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: var(--blue);
+      color: white;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+    }
 
-const state = {
-  shots:{insta:null,youtube:null,founder:null},
-  instagramUsername:"",
-  mobile:"",
-  submitting:false,
-  refId:null
-};
+    .brand-name {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
 
-const $ = (s) => document.querySelector(s);
+    .reward-tag {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 11px;
+      border: 1px solid #D6E2FF;
+      border-radius: 8px;
+      background: white;
+      color: var(--blue-dark);
+      font-size: 11px;
+      font-weight: 700;
+    }
 
-function esc(value){
-  return String(value ?? "").replace(/[&<>"']/g, c => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  }[c]));
-}
+    .reward-tag span {
+      font-size: 15px;
+    }
 
-function checkSvg(){
-  return `<svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2L4.8 8.5L9.5 3.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-}
+    /* =========================================
+       HERO
+    ========================================= */
 
-function greenCheck(){
-  return `<svg width="17" height="17" viewBox="0 0 18 18" fill="none"><path d="M3.5 9.2L7.1 12.7L14.5 5.2" stroke="#17824b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-}
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 300px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      align-items: center;
+      gap: 25px;
 
-function resizeImage(file, maxWidth=900, quality=.72){
-  return new Promise((resolve,reject)=>{
-    if(!file.type.startsWith("image/")) return reject(new Error("Please select an image."));
-    if(file.size > 8*1024*1024) return reject(new Error("Image must be smaller than 8 MB."));
-    const reader = new FileReader();
-    reader.onload = e => {
-      const img = new Image();
-      img.onload = () => {
-        let w=img.width,h=img.height;
-        if(w>maxWidth){h=Math.round(h*(maxWidth/w));w=maxWidth}
-        const canvas=document.createElement("canvas");
-        canvas.width=w;canvas.height=h;
-        canvas.getContext("2d").drawImage(img,0,0,w,h);
-        canvas.toBlob(blob=>{
-          if(!blob) return reject(new Error("Could not process image."));
-          resolve(new File([blob],"proof.jpg",{type:"image/jpeg"}));
-        },"image/jpeg",quality);
-      };
-      img.onerror=()=>reject(new Error("Could not read image."));
-      img.src=e.target.result;
-    };
-    reader.onerror=()=>reject(new Error("Could not read image."));
-    reader.readAsDataURL(file);
-  });
-}
+      padding: 42px 46px;
+      margin-bottom: 16px;
 
-function countDone(){
-  return Object.values(state.shots).filter(Boolean).length;
-}
+      background: #F0F5FF;
+      border: 1px solid #DCE7FF;
+      border-radius: var(--radius-lg);
+    }
 
-function render(){
-  const app=$("#app");
-  app.innerHTML=`
-    <main class="wrap">
-      <div class="brand-row">
-        <div class="brand-mark"><img src="${LOGO_SRC}" alt="Bill Wallah"></div>
-        <span>Bill Wallah</span>
-      </div>
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
 
-      <section class="hero" aria-label="Get fifteen rupees reward">
-        <div class="hero-copy">
-          <div class="hero-kicker"><span>✦</span> LIMITED REWARD</div>
-          <h1>Get ₹15 for Free</h1>
-          <p>Follow, capture your proof, submit — we <br> verify it manually and send your reward <br> if approved.</p>
-        </div>
-        <div class="paper-shadow"></div>
-        <div class="paper">
-          <div class="paper-inner">
-            <div class="paper-small">BILL WALLAH • REWARD</div>
-            <div class="paper-amount">₹15</div>
-            <div class="paper-free">FREE</div>
-          </div>
-        </div>
-        <div class="tape"></div>
-        <div class="hero-coin"></div>
-        <i class="spark s1"></i><i class="spark s2"></i><i class="spark s3"></i>
-      </section>
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
 
-      <div class="card">
-      <div class="progress">
-        <div class="progress-track"><div class="progress-fill" style="width:${countDone()/3*100}%"></div></div>
-        <div class="progress-text">${countDone()} of 3 completed</div>
-      </div>
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
 
-      <section class="steps">
-        ${STEPS.map((step,i)=>`
-          <div class="step">
-            <div class="step-rail">
-              <div class="step-dot">${state.shots[step.key] ? checkSvg() : i+1}</div>
-              <div class="step-line"></div>
-            </div>
-            <div class="step-body">
-              <div class="step-title">${step.title}</div>
-              <div class="step-desc">${step.desc}</div>
-              <a class="step-link" href="${step.url}" target="_blank" rel="noopener">${step.link}</a>
+    .eyebrow::before {
+      content: "";
+      width: 20px;
+      height: 2px;
+      background: var(--blue);
+    }
 
-              <div class="upload-row ${state.shots[step.key] ? "filled" : ""}">
-                ${state.shots[step.key]
-                  ? `<img class="upload-thumb" src="${URL.createObjectURL(state.shots[step.key])}" alt="Uploaded proof">`
-                  : `<div class="upload-placeholder"></div>`}
-                <div class="upload-status">
-                  ${state.shots[step.key] ? "<b>Screenshot added</b>" : "Add your screenshot"}
-                </div>
-                <label class="upload-btn">${state.shots[step.key] ? "Replace" : "Upload"}
-                  <input type="file" accept="image/png,image/jpeg,image/webp" data-step="${step.key}">
-                </label>
-              </div>
-            </div>
-          </div>
-        `).join("")}
-      </section>
+    .hero h1 {
+      margin: 12px 0 10px;
+      max-width: 510px;
 
-      <section class="contact-section">
-        <label class="field-label" for="instagram-username">Instagram username</label>
-        <input id="instagram-username" class="field-input" type="text" maxlength="50"
-          placeholder="Your Instagram username" value="${esc(state.instagramUsername)}">
-        <div class="field-hint">Enter the username for the account you followed.</div>
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: .98;
+      letter-spacing: -.055em;
+      font-weight: 800;
+    }
 
-        <label class="field-label" for="mobile">Mobile number</label>
-        <input id="mobile" class="field-input" type="tel" inputmode="numeric" maxlength="10"
-          placeholder="10-digit mobile number" value="${esc(state.mobile)}" ${countDone()===3 ? "" : "disabled"}>
-        <div class="field-hint">${countDone()===3 ? "We'll use this number for the ₹15 payout." : "Complete all three steps to continue."}</div>
+    .hero h1 strong {
+      color: var(--blue);
+    }
 
-        <label class="checkbox">
-          <input id="confirm" type="checkbox" ${countDone()===3 ? "" : "disabled"}>
-          <span>I confirm that I completed all 3 steps and that the screenshots I submitted are genuine.</span>
-        </label>
+    .hero-description {
+      max-width: 470px;
+      margin: 0;
 
-        <div class="receipt">
-          <span class="receipt-label">You'll receive if approved</span>
-          <span class="receipt-value">₹15</span>
-        </div>
+      color: var(--text-2);
+      font-size: 14px;
+      line-height: 1.65;
+    }
 
-        <div id="form-alert" class="alert error hidden"></div>
-        <button class="submit-btn" id="submit-btn" ${countDone()===3 ? "" : "disabled"}>
-          ${state.submitting ? "Submitting…" : "Submit for verification"}
-        </button>
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 24px;
+    }
 
-        <div class="fine-print">One submission per mobile number. Our team manually verifies screenshots. Approval does not mean payment has already been sent.</div>
-      </section>
-      </div>
+    .meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
 
-      <div class="card">
-      <section class="status-section" style="border-top:0;margin-top:0;padding-top:0">
-        <h2>Check your submission</h2>
-        <p>Use your Submission ID and mobile number to see the latest status.</p>
-        <div class="status-form">
-          <input id="status-id" class="field-input" placeholder="Submission ID">
-          <input id="status-mobile" class="field-input" inputmode="numeric" maxlength="10" placeholder="Mobile number">
-          <button id="status-btn">Check</button>
-        </div>
-        <div id="status-result" class="status-result"></div>
-      </section>
-      </div>
+      padding: 8px 10px;
+      background: white;
+      border: 1px solid #E1E8F5;
+      border-radius: 8px;
 
-      <div class="app-card">
-        <h2>Recharge smarter with Bill Wallah</h2>
-        <p>The Bill Wallah Recharge App — coming soon here. No fake download link.</p>
-      </div>
+      color: var(--text-2);
+      font-size: 10px;
+      font-weight: 600;
+    }
 
-      <div class="admin-link-row">
-        <button id="admin-link">Admin login</button>
-      </div>
+    .meta-icon {
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 11px;
+    }
 
-      <footer class="footer">
-        <strong>Bill Wallah</strong>
-        <div class="footer-links">
-          <a href="${LINKS.instagram}" target="_blank" rel="noopener">Instagram</a>
-          <a href="${LINKS.youtube}" target="_blank" rel="noopener">YouTube</a>
-          <a href="${LINKS.founder}" target="_blank" rel="noopener">Founder Instagram</a>
-          <a href="#">Terms & Conditions</a>
-          <a href="#">Privacy Policy</a>
-        </div>
-      </footer>
-    </main>
-  `;
+    /* Reward visual */
 
-  bind();
-}
+    .reward-visual {
+      position: relative;
+      height: 220px;
+      display: grid;
+      place-items: center;
+    }
 
-function bind(){
-  document.querySelectorAll('input[type=file]').forEach(input=>{
-    input.addEventListener("change",async e=>{
-      const file=e.target.files?.[0];
-      if(!file)return;
-      try{
-        state.shots[e.target.dataset.step]=await resizeImage(file);
-        render();
-      }catch(err){
-        showAlert(err.message);
+    .receipt {
+      position: relative;
+      width: 225px;
+      height: 145px;
+
+      background: white;
+      border: 1px solid #D9E2F2;
+      box-shadow: 0 18px 40px rgba(21, 94, 239, .13);
+
+      transform: rotate(3deg);
+      z-index: 2;
+    }
+
+    .receipt::before,
+    .receipt::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 8px;
+
+      background:
+        radial-gradient(circle at 5px 0, transparent 4px, white 4.5px)
+        repeat-x;
+      background-size: 10px 10px;
+    }
+
+    .receipt::before {
+      top: -5px;
+    }
+
+    .receipt::after {
+      bottom: -5px;
+      transform: rotate(180deg);
+    }
+
+    .receipt-inner {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .receipt-label {
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .receipt-amount {
+      margin: 5px 0;
+
+      color: var(--blue);
+      font-size: 48px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -.06em;
+    }
+
+    .receipt-free {
+      padding: 5px 10px;
+      border-radius: 6px;
+      background: var(--yellow-light);
+      color: #B54708;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .visual-dot {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .visual-dot.one {
+      width: 9px;
+      height: 9px;
+      top: 25px;
+      right: 35px;
+    }
+
+    .visual-dot.two {
+      width: 6px;
+      height: 6px;
+      bottom: 25px;
+      left: 25px;
+    }
+
+    .visual-line {
+      position: absolute;
+      width: 75px;
+      height: 75px;
+      right: 15px;
+      bottom: 5px;
+
+      border: 1px solid #BFD0FF;
+      border-radius: 50%;
+    }
+
+    /* =========================================
+       MAIN CARD
+    ========================================= */
+
+    .main-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -.025em;
+    }
+
+    .card-subtitle {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .progress-count {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .progress-bar {
+      height: 3px;
+      background: #F2F4F7;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--blue);
+      transition: width .25s ease;
+    }
+
+    /* =========================================
+       STEPS
+    ========================================= */
+
+    .steps {
+      padding: 5px 24px 0;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 15px;
+
+      padding: 23px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step:last-child {
+      border-bottom: 0;
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+      place-items: center;
+
+      border: 1px solid var(--border-dark);
+      border-radius: 9px;
+
+      background: white;
+      color: var(--muted);
+
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .step.done .step-number {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: white;
+    }
+
+    .step-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .step-title {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -.015em;
+    }
+
+    .step-description {
+      margin: 4px 0 8px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    .step-link {
+      display: inline-flex;
+      color: var(--blue);
+      font-size: 10.5px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .step-link:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================================
+       UPLOAD
+    ========================================= */
+
+    .upload-box {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+
+      margin-top: 13px;
+      padding: 9px;
+
+      border: 1px dashed var(--border-dark);
+      border-radius: 10px;
+      background: #FAFBFC;
+
+      transition: .15s ease;
+    }
+
+    .upload-box:hover,
+    .upload-box.filled {
+      border-color: #91AEFF;
+      background: var(--blue-light);
+    }
+
+    .upload-preview,
+    .upload-placeholder {
+      width: 42px;
+      height: 42px;
+      flex: none;
+
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .upload-placeholder {
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      background: #F2F4F7;
+      color: var(--subtle);
+      font-size: 18px;
+    }
+
+    .upload-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .upload-info strong {
+      display: block;
+      overflow: hidden;
+
+      color: var(--text);
+      font-size: 10.5px;
+      font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .upload-info span {
+      color: var(--muted);
+      font-size: 9px;
+    }
+
+    .upload-button {
+      padding: 8px 11px;
+
+      border: 1px solid #BFD0FF;
+      border-radius: 7px;
+
+      background: white;
+      color: var(--blue);
+
+      font-size: 10px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .upload-button:hover {
+      background: var(--blue);
+      color: white;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    /* =========================================
+       FORM
+    ========================================= */
+
+    .details {
+      margin: 0 24px;
+      padding: 25px 0 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .details-heading {
+      margin-bottom: 18px;
+    }
+
+    .details-heading h3 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .details-heading p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 10.5px;
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 6px;
+
+      font-size: 10.5px;
+      font-weight: 700;
+    }
+
+    .input {
+      width: 100%;
+      height: 44px;
+      padding: 0 12px;
+
+      border: 1px solid var(--border-dark);
+      border-radius: 8px;
+
+      background: white;
+      color: var(--text);
+
+      outline: none;
+      font-size: 12px;
+
+      transition: .15s ease;
+    }
+
+    .input::placeholder {
+      color: #A6AFBD;
+    }
+
+    .input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(21, 94, 239, .08);
+    }
+
+    .input:disabled {
+      background: #F2F4F7;
+      color: var(--subtle);
+      cursor: not-allowed;
+    }
+
+    .hint {
+      margin-top: 5px;
+      color: var(--subtle);
+      font-size: 9px;
+    }
+
+    .confirm {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+
+      margin-top: 16px;
+
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .confirm input {
+      width: 16px;
+      height: 16px;
+      flex: none;
+      margin: 0;
+
+      accent-color: var(--blue);
+    }
+
+    .reward-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-top: 17px;
+      padding: 12px 14px;
+
+      border: 1px solid #FDE68A;
+      border-radius: 9px;
+
+      background: var(--yellow-light);
+    }
+
+    .reward-summary span {
+      color: #7A5A00;
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .reward-summary strong {
+      color: #B54708;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    /* =========================================
+       ALERT
+    ========================================= */
+
+    .alert {
+      margin-top: 12px;
+      padding: 10px 12px;
+
+      border-radius: 8px;
+
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .alert.error {
+      border: 1px solid #FDA29B;
+      background: #FEF3F2;
+      color: #B42318;
+    }
+
+    /* =========================================
+       SUBMIT
+    ========================================= */
+
+    .submit {
+      width: 100%;
+      height: 48px;
+
+      margin-top: 12px;
+
+      border: 0;
+      border-radius: 8px;
+
+      background: var(--blue);
+      color: white;
+
+      font-size: 12px;
+      font-weight: 800;
+
+      transition: .15s ease;
+    }
+
+    .submit:hover:not(:disabled) {
+      background: var(--blue-dark);
+    }
+
+    .submit:disabled {
+      background: #EAECF0;
+      color: #98A2B3;
+      cursor: not-allowed;
+    }
+
+    .fine-print {
+      margin: 9px 0 0;
+
+      color: var(--subtle);
+      font-size: 9px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    /* =========================================
+       STATUS
+    ========================================= */
+
+    .status-card {
+      margin-top: 16px;
+      padding: 22px 24px;
+
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+
+      box-shadow: var(--shadow);
+    }
+
+    .status-card h2 {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .status-card > p {
+      margin: 4px 0 16px;
+
+      color: var(--muted);
+      font-size: 10.5px;
+    }
+
+    .status-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr 110px;
+      gap: 8px;
+    }
+
+    .status-form button {
+      height: 44px;
+
+      border: 0;
+      border-radius: 8px;
+
+      background: var(--text);
+      color: white;
+
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .status-form button:hover {
+      background: #344054;
+    }
+
+    .status-form button:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+
+    .status-result {
+      margin-top: 12px;
+    }
+
+    .status-result-card {
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+      border-radius: 9px;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+
+      padding: 11px 12px;
+
+      border-bottom: 1px solid #F2F4F7;
+
+      font-size: 10px;
+    }
+
+    .status-row:last-child {
+      border-bottom: 0;
+    }
+
+    .status-row span:first-child {
+      color: var(--muted);
+    }
+
+    .status-row strong {
+      text-align: right;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      padding: 4px 8px;
+
+      border-radius: 5px;
+
+      background: var(--blue-light);
+      color: var(--blue-dark);
+
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    /* =========================================
+       BOTTOM INFO
+    ========================================= */
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 16px;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .info-item {
+      padding: 16px;
+
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .info-item:last-child {
+      border-right: 0;
+    }
+
+    .info-item strong {
+      display: block;
+      margin-bottom: 3px;
+
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .info-item span {
+      color: var(--muted);
+      font-size: 9px;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+      padding-top: 22px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      color: var(--text-2);
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 13px;
+
+      margin-top: 8px;
+    }
+
+    .footer-links a,
+    .admin-button {
+      border: 0;
+      padding: 0;
+
+      background: transparent;
+      color: var(--subtle);
+
+      font-size: 9px;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover,
+    .admin-button:hover {
+      color: var(--blue);
+    }
+
+    .admin-area {
+      margin-top: 12px;
+    }
+
+    /* =========================================
+       SUCCESS
+    ========================================= */
+
+    .success {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .success-card {
+      padding: 34px;
+
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+
+      box-shadow: var(--shadow);
+    }
+
+    .success-icon {
+      width: 48px;
+      height: 48px;
+
+      display: grid;
+      place-items: center;
+
+      margin-bottom: 18px;
+
+      border: 1px solid #ABEFC6;
+      border-radius: 50%;
+
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .success-card h1 {
+      margin: 0 0 7px;
+
+      font-size: 25px;
+      letter-spacing: -.04em;
+    }
+
+    .success-card > p {
+      margin: 0 0 20px;
+
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .reference {
+      padding: 15px;
+
+      border: 1px solid #D6E2FF;
+      border-radius: 9px;
+
+      background: var(--blue-light);
+    }
+
+    .reference small {
+      display: block;
+      color: var(--muted);
+      font-size: 9px;
+    }
+
+    .reference strong {
+      display: block;
+      margin: 3px 0;
+
+      color: var(--blue-dark);
+      font-size: 18px;
+      letter-spacing: -.02em;
+    }
+
+    .details-list {
+      overflow: hidden;
+
+      margin-top: 13px;
+
+      border: 1px solid var(--border);
+      border-radius: 9px;
+    }
+
+    .details-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+
+      padding: 11px 12px;
+
+      border-bottom: 1px solid #F2F4F7;
+
+      font-size: 10px;
+    }
+
+    .details-row:last-child {
+      border-bottom: 0;
+    }
+
+    .details-row span {
+      color: var(--muted);
+    }
+
+    .details-row strong {
+      text-align: right;
+    }
+
+    .success-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+
+      margin-top: 14px;
+    }
+
+    .secondary {
+      height: 44px;
+
+      border: 1px solid var(--border-dark);
+      border-radius: 8px;
+
+      background: white;
+      color: var(--text-2);
+
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .secondary:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    /* =========================================
+       TABLET
+    ========================================= */
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(680px, calc(100% - 24px));
+        padding-top: 18px;
       }
+
+      .hero {
+        grid-template-columns: 1fr 240px;
+        min-height: 280px;
+        padding: 32px 28px;
+      }
+
+      .receipt {
+        width: 190px;
+        height: 130px;
+      }
+
+      .receipt-amount {
+        font-size: 40px;
+      }
+
+      .status-form {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .status-form button {
+        grid-column: 1 / -1;
+      }
+    }
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
+    @media (max-width: 560px) {
+      .page {
+        width: calc(100% - 18px);
+        padding: 12px 0 32px;
+      }
+
+      .header {
+        margin-bottom: 14px;
+      }
+
+      .brand-logo {
+        width: 34px;
+        height: 34px;
+      }
+
+      .brand-name {
+        font-size: 15px;
+      }
+
+      .reward-tag {
+        padding: 7px 9px;
+        font-size: 9px;
+      }
+
+      .hero {
+        display: block;
+        min-height: 360px;
+        padding: 25px 20px;
+      }
+
+      .hero h1 {
+        max-width: 320px;
+        font-size: 36px;
+      }
+
+      .hero-description {
+        font-size: 12px;
+      }
+
+      .hero-meta {
+        gap: 6px;
+        margin-top: 18px;
+      }
+
+      .meta-item {
+        font-size: 9px;
+      }
+
+      .reward-visual {
+        height: 135px;
+        margin-top: 3px;
+      }
+
+      .receipt {
+        width: 185px;
+        height: 115px;
+      }
+
+      .receipt-amount {
+        font-size: 38px;
+      }
+
+      .card-header {
+        padding: 18px 16px;
+      }
+
+      .card-title {
+        font-size: 16px;
+      }
+
+      .steps {
+        padding: 0 16px;
+      }
+
+      .step {
+        grid-template-columns: 32px 1fr;
+        gap: 10px;
+        padding: 19px 0;
+      }
+
+      .step-number {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+      }
+
+      .step-top {
+        display: block;
+      }
+
+      .step-title {
+        font-size: 13px;
+      }
+
+      .step-description {
+        font-size: 10.5px;
+      }
+
+      .upload-box {
+        margin-top: 11px;
+      }
+
+      .details {
+        margin: 0 16px;
+        padding-top: 21px;
+      }
+
+      .status-card {
+        padding: 19px 16px;
+      }
+
+      .status-form {
+        grid-template-columns: 1fr;
+      }
+
+      .status-form button {
+        grid-column: auto;
+      }
+
+      .info-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+
+        padding: 13px 15px;
+        text-align: left;
+
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .info-item:last-child {
+        border-bottom: 0;
+      }
+
+      .info-item strong {
+        margin: 0;
+      }
+
+      .success-card {
+        padding: 25px 19px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero {
+        min-height: 345px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero-meta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .reward-visual {
+        height: 120px;
+      }
+
+      .receipt {
+        width: 165px;
+      }
+
+      .upload-button {
+        padding: 7px 9px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="app"></div>
+
+<script>
+
+  /* =========================================
+     CONFIG
+  ========================================= */
+
+  const LINKS = {
+    instagram: "https://insta.openinapp.co/u1zr4",
+    youtube: "https://yt.openinapp.co/4haa7",
+    founder: "https://insta.openinapp.co/kxbbn"
+  };
+
+
+  const STEPS = [
+    {
+      key: "insta",
+      title: "Follow Bill Wallah on Instagram",
+      desc: "Open our profile, tap Follow, then upload a screenshot showing that you're following.",
+      link: "Open Instagram",
+      url: LINKS.instagram
+    },
+    {
+      key: "youtube",
+      title: "Subscribe on YouTube",
+      desc: "Open our channel, tap Subscribe, then upload a screenshot showing your subscription.",
+      link: "Open YouTube",
+      url: LINKS.youtube
+    },
+    {
+      key: "founder",
+      title: "Follow the founder on Instagram",
+      desc: "Follow the founder's account and upload a screenshot showing that you're following.",
+      link: "Open Instagram",
+      url: LINKS.founder
+    }
+  ];
+
+
+  const state = {
+    shots: {
+      insta: null,
+      youtube: null,
+      founder: null
+    },
+
+    instagramUsername: "",
+    mobile: "",
+
+    submitting: false,
+    refId: null
+  };
+
+
+  const $ = selector => document.querySelector(selector);
+
+
+  /* =========================================
+     HELPERS
+  ========================================= */
+
+  function esc(value) {
+    return String(value ?? "").replace(/[&<>"']/g, char => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[char]));
+  }
+
+
+  function checkIcon() {
+    return `
+      <svg width="13" height="13"
+           viewBox="0 0 16 16"
+           fill="none"
+           aria-hidden="true">
+        <path
+          d="M3 8.2L6.1 11.2L13 4.8"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    `;
+  }
+
+
+  function successIcon() {
+    return `
+      <svg width="21" height="21"
+           viewBox="0 0 24 24"
+           fill="none">
+        <path
+          d="M5 12.5L9.2 16.5L19 7"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    `;
+  }
+
+
+  function uploadIcon() {
+    return `
+      <svg width="17" height="17"
+           viewBox="0 0 24 24"
+           fill="none">
+        <rect
+          x="3"
+          y="4"
+          width="18"
+          height="16"
+          rx="2"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <circle
+          cx="8"
+          cy="9"
+          r="1.4"
+          fill="currentColor"
+        />
+        <path
+          d="M4.5 17L9 12.5L12.5 16L15 13.5L19.5 18"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    `;
+  }
+
+
+  function countDone() {
+    return Object.values(state.shots).filter(Boolean).length;
+  }
+
+
+  /* =========================================
+     IMAGE PROCESSING
+  ========================================= */
+
+  function resizeImage(file, maxWidth = 900, quality = .72) {
+
+    return new Promise((resolve, reject) => {
+
+      if (!file.type.startsWith("image/")) {
+        return reject(
+          new Error("Please select an image.")
+        );
+      }
+
+      if (file.size > 8 * 1024 * 1024) {
+        return reject(
+          new Error("Image must be smaller than 8 MB.")
+        );
+      }
+
+      const reader = new FileReader();
+
+      reader.onload = event => {
+
+        const img = new Image();
+
+        img.onload = () => {
+
+          let width = img.width;
+          let height = img.height;
+
+          if (width > maxWidth) {
+            height = Math.round(
+              height * (maxWidth / width)
+            );
+
+            width = maxWidth;
+          }
+
+          const canvas = document.createElement("canvas");
+
+          canvas.width = width;
+          canvas.height = height;
+
+          const context = canvas.getContext("2d");
+
+          context.drawImage(
+            img,
+            0,
+            0,
+            width,
+            height
+          );
+
+          canvas.toBlob(blob => {
+
+            if (!blob) {
+              return reject(
+                new Error("Could not process image.")
+              );
+            }
+
+            resolve(
+              new File(
+                [blob],
+                "proof.jpg",
+                { type: "image/jpeg" }
+              )
+            );
+
+          }, "image/jpeg", quality);
+        };
+
+        img.onerror = () => {
+          reject(
+            new Error("Could not read image.")
+          );
+        };
+
+        img.src = event.target.result;
+      };
+
+      reader.onerror = () => {
+        reject(
+          new Error("Could not read image.")
+        );
+      };
+
+      reader.readAsDataURL(file);
     });
-  });
+  }
 
-  const mobile=$("#mobile");
-  const instagramUsername=$("#instagram-username");
-  if(instagramUsername) instagramUsername.addEventListener("input",e=>{
-    state.instagramUsername=e.target.value.trim().slice(0,50);
-    e.target.value=state.instagramUsername;
-  });
 
-  if(mobile) mobile.addEventListener("input",e=>{
-    state.mobile=e.target.value.replace(/\D/g,"").slice(0,10);
-    e.target.value=state.mobile;
-  });
+  /* =========================================
+     MAIN RENDER
+  ========================================= */
 
-  $("#submit-btn")?.addEventListener("click",handleSubmit);
-  $("#status-btn")?.addEventListener("click",checkStatus);
-  $("#admin-link")?.addEventListener("click",()=>location.href="/admin");
-}
+  function render() {
 
-function showAlert(message){
-  const box=$("#form-alert");
-  if(!box)return;
-  box.textContent=message;
-  box.classList.remove("hidden");
-  box.scrollIntoView({behavior:"smooth",block:"nearest"});
-}
+    const app = $("#app");
 
-async function handleSubmit(){
-  if(state.submitting)return;
+    const completed = countDone();
+    const percentage = (completed / 3) * 100;
 
-  if(countDone()!==3)return showAlert("Please upload all three screenshots.");
-  if(!state.instagramUsername)return showAlert("Enter your Instagram username.");
-  if(!/^[6-9]\d{9}$/.test(state.mobile))return showAlert("Enter a valid 10-digit Indian mobile number.");
-  if(!$("#confirm")?.checked)return showAlert("Please confirm that you completed all 3 steps.");
+    app.innerHTML = `
 
-  state.submitting=true;
+      <main class="page">
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+          <div class="brand">
+            <div class="brand-logo">
+              BW
+            </div>
+
+            <div class="brand-name">
+              Bill Wallah
+            </div>
+          </div>
+
+          <div class="reward-tag">
+            <span>₹</span>
+            ₹15 Reward
+          </div>
+
+        </header>
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+          <div class="hero-content">
+
+            <div class="eyebrow">
+              FOLLOW & EARN
+            </div>
+
+            <h1>
+              Get <strong>₹15</strong><br>
+              for 3 simple steps.
+            </h1>
+
+            <p class="hero-description">
+              Follow our social pages, upload genuine screenshots,
+              and submit your details. Our team will manually review
+              your request.
+            </p>
+
+            <div class="hero-meta">
+
+              <div class="meta-item">
+                <div class="meta-icon">✓</div>
+                100% Free
+              </div>
+
+              <div class="meta-item">
+                <div class="meta-icon">✓</div>
+                Manual Review
+              </div>
+
+              <div class="meta-item">
+                <div class="meta-icon">48</div>
+                Within 48 Hours
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="reward-visual">
+
+            <div class="visual-dot one"></div>
+            <div class="visual-dot two"></div>
+            <div class="visual-line"></div>
+
+            <div class="receipt">
+
+              <div class="receipt-inner">
+
+                <div class="receipt-label">
+                  Your Reward
+                </div>
+
+                <div class="receipt-amount">
+                  ₹15
+                </div>
+
+                <div class="receipt-free">
+                  FREE
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- MAIN FORM -->
+
+        <section class="main-card">
+
+          <div class="card-header">
+
+            <div>
+              <h2 class="card-title">
+                Complete the steps
+              </h2>
+
+              <p class="card-subtitle">
+                Upload proof for each completed step.
+              </p>
+            </div>
+
+            <div class="progress-count">
+              ${completed} / 3
+            </div>
+
+          </div>
+
+
+          <div class="progress-bar">
+            <div
+              class="progress-fill"
+              style="width:${percentage}%">
+            </div>
+          </div>
+
+
+          <div class="steps">
+
+            ${STEPS.map((step, index) => {
+
+              const uploaded = !!state.shots[step.key];
+
+              return `
+
+                <div class="step ${uploaded ? "done" : ""}">
+
+                  <div class="step-number">
+
+                    ${
+                      uploaded
+                        ? checkIcon()
+                        : index + 1
+                    }
+
+                  </div>
+
+
+                  <div>
+
+                    <div class="step-top">
+
+                      <div>
+
+                        <h3 class="step-title">
+                          ${step.title}
+                        </h3>
+
+                        <p class="step-description">
+                          ${step.desc}
+                        </p>
+
+                        <a
+                          class="step-link"
+                          href="${step.url}"
+                          target="_blank"
+                          rel="noopener">
+                          ${step.link} →
+                        </a>
+
+                      </div>
+
+                    </div>
+
+
+                    <div
+                      class="upload-box ${uploaded ? "filled" : ""}">
+
+                      ${
+                        uploaded
+
+                        ? `
+                          <img
+                            class="upload-preview"
+                            src="${URL.createObjectURL(state.shots[step.key])}"
+                            alt="Uploaded screenshot">
+                        `
+
+                        : `
+                          <div class="upload-placeholder">
+                            ${uploadIcon()}
+                          </div>
+                        `
+                      }
+
+
+                      <div class="upload-info">
+
+                        <strong>
+                          ${
+                            uploaded
+                              ? "Screenshot added"
+                              : "Upload screenshot"
+                          }
+                        </strong>
+
+                        <span>
+                          ${
+                            uploaded
+                              ? "Proof ready for submission"
+                              : "PNG, JPG or WEBP"
+                          }
+                        </span>
+
+                      </div>
+
+
+                      <label class="upload-button">
+
+                        ${
+                          uploaded
+                            ? "Replace"
+                            : "Upload"
+                        }
+
+                        <input
+                          type="file"
+                          accept="image/png,image/jpeg,image/webp"
+                          data-step="${step.key}">
+
+                      </label>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              `;
+
+            }).join("")}
+
+          </div>
+
+
+          <!-- DETAILS -->
+
+          <section class="details">
+
+            <div class="details-heading">
+
+              <h3>
+                Your details
+              </h3>
+
+              <p>
+                Enter your information to receive the reward.
+              </p>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="instagram-username">
+                Instagram username
+              </label>
+
+              <input
+                id="instagram-username"
+                class="input"
+                type="text"
+                maxlength="50"
+                placeholder="@yourusername"
+                value="${esc(state.instagramUsername)}">
+
+              <div class="hint">
+                Enter the username of the account you used.
+              </div>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="mobile">
+                Mobile number
+              </label>
+
+              <input
+                id="mobile"
+                class="input"
+                type="tel"
+                inputmode="numeric"
+                maxlength="10"
+                placeholder="10-digit mobile number"
+                value="${esc(state.mobile)}"
+                ${completed === 3 ? "" : "disabled"}>
+
+              <div class="hint">
+
+                ${
+                  completed === 3
+                    ? "We'll use this number for verification and payout."
+                    : "Complete all 3 steps to unlock this field."
+                }
+
+              </div>
+
+            </div>
+
+
+            <label class="confirm">
+
+              <input
+                id="confirm"
+                type="checkbox"
+                ${completed === 3 ? "" : "disabled"}>
+
+              <span>
+                I confirm that I completed all 3 steps and
+                that the screenshots I submitted are genuine.
+              </span>
+
+            </label>
+
+
+            <div class="reward-summary">
+
+              <span>
+                Reward if approved
+              </span>
+
+              <strong>
+                ₹15
+              </strong>
+
+            </div>
+
+
+            <div
+              id="form-alert"
+              class="alert error hidden">
+            </div>
+
+
+            <button
+              class="submit"
+              id="submit-btn"
+              ${completed === 3 ? "" : "disabled"}>
+
+              ${
+                state.submitting
+                  ? "Submitting..."
+                  : "Submit for verification"
+              }
+
+            </button>
+
+
+            <p class="fine-print">
+              One submission per mobile number.
+              Screenshots are manually verified.
+              Approval does not mean payment has already been sent.
+            </p>
+
+          </section>
+
+        </section>
+
+
+        <!-- STATUS -->
+
+        <section class="status-card">
+
+          <h2>
+            Check your submission
+          </h2>
+
+          <p>
+            Enter your Submission ID and mobile number
+            to see the latest status.
+          </p>
+
+
+          <div class="status-form">
+
+            <input
+              id="status-id"
+              class="input"
+              placeholder="Submission ID">
+
+            <input
+              id="status-mobile"
+              class="input"
+              inputmode="numeric"
+              maxlength="10"
+              placeholder="Mobile number">
+
+            <button id="status-btn">
+              Check status
+            </button>
+
+          </div>
+
+
+          <div
+            id="status-result"
+            class="status-result">
+          </div>
+
+        </section>
+
+
+        <!-- INFO -->
+
+        <section class="info-strip">
+
+          <div class="info-item">
+
+            <strong>
+              48 Hour Review
+            </strong>
+
+            <span>
+              Manual verification
+            </span>
+
+          </div>
+
+
+          <div class="info-item">
+
+            <strong>
+              Genuine Users
+            </strong>
+
+            <span>
+              Real screenshots only
+            </span>
+
+          </div>
+
+
+          <div class="info-item">
+
+            <strong>
+              ₹15 Reward
+            </strong>
+
+            <span>
+              If your request is approved
+            </span>
+
+          </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+          <div class="footer-brand">
+            Bill Wallah
+          </div>
+
+          <div class="footer-links">
+
+            <a
+              href="${LINKS.instagram}"
+              target="_blank"
+              rel="noopener">
+              Instagram
+            </a>
+
+            <a
+              href="${LINKS.youtube}"
+              target="_blank"
+              rel="noopener">
+              YouTube
+            </a>
+
+            <a
+              href="${LINKS.founder}"
+              target="_blank"
+              rel="noopener">
+              Founder
+            </a>
+
+            <a href="#">
+              Terms
+            </a>
+
+            <a href="#">
+              Privacy
+            </a>
+
+          </div>
+
+
+          <div class="admin-area">
+
+            <button
+              class="admin-button"
+              id="admin-link">
+              Admin login
+            </button>
+
+          </div>
+
+        </footer>
+
+      </main>
+    `;
+
+
+    bind();
+  }
+
+
+  /* =========================================
+     EVENTS
+  ========================================= */
+
+  function bind() {
+
+    document
+      .querySelectorAll('input[type="file"]')
+      .forEach(input => {
+
+        input.addEventListener("change", async event => {
+
+          const file = event.target.files?.[0];
+
+          if (!file) return;
+
+          try {
+
+            state.shots[
+              event.target.dataset.step
+            ] = await resizeImage(file);
+
+            render();
+
+          } catch (error) {
+
+            showAlert(error.message);
+
+          }
+
+        });
+
+      });
+
+
+    const username =
+      $("#instagram-username");
+
+    const mobile =
+      $("#mobile");
+
+
+    if (username) {
+
+      username.addEventListener("input", event => {
+
+        state.instagramUsername =
+          event.target.value
+            .trim()
+            .slice(0, 50);
+
+        event.target.value =
+          state.instagramUsername;
+
+      });
+
+    }
+
+
+    if (mobile) {
+
+      mobile.addEventListener("input", event => {
+
+        state.mobile =
+          event.target.value
+            .replace(/\D/g, "")
+            .slice(0, 10);
+
+        event.target.value =
+          state.mobile;
+
+      });
+
+    }
+
+
+    $("#submit-btn")
+      ?.addEventListener(
+        "click",
+        handleSubmit
+      );
+
+
+    $("#status-btn")
+      ?.addEventListener(
+        "click",
+        checkStatus
+      );
+
+
+    $("#admin-link")
+      ?.addEventListener(
+        "click",
+        () => {
+          location.href = "/admin";
+        }
+      );
+  }
+
+
+  /* =========================================
+     ALERT
+  ========================================= */
+
+  function showAlert(message) {
+
+    const box =
+      $("#form-alert");
+
+    if (!box) return;
+
+    box.textContent =
+      message;
+
+    box.classList.remove(
+      "hidden"
+    );
+
+    box.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest"
+    });
+  }
+
+
+  /* =========================================
+     SUBMIT
+  ========================================= */
+
+  async function handleSubmit() {
+
+    if (state.submitting)
+      return;
+
+
+    if (countDone() !== 3) {
+
+      return showAlert(
+        "Please upload all three screenshots."
+      );
+
+    }
+
+
+    if (!state.instagramUsername) {
+
+      return showAlert(
+        "Enter your Instagram username."
+      );
+
+    }
+
+
+    if (!/^[6-9]\d{9}$/.test(state.mobile)) {
+
+      return showAlert(
+        "Enter a valid 10-digit Indian mobile number."
+      );
+
+    }
+
+
+    if (!$("#confirm")?.checked) {
+
+      return showAlert(
+        "Please confirm that you completed all 3 steps."
+      );
+
+    }
+
+
+    state.submitting = true;
+
+    render();
+
+
+    try {
+
+      const formData =
+        new FormData();
+
+      formData.append(
+        "mobileNumber",
+        state.mobile
+      );
+
+      formData.append(
+        "instagramUsername",
+        state.instagramUsername
+      );
+
+      formData.append(
+        "confirm",
+        "on"
+      );
+
+      formData.append(
+        "instagramScreenshot",
+        state.shots.insta,
+        "instagram-proof.jpg"
+      );
+
+      formData.append(
+        "youtubeScreenshot",
+        state.shots.youtube,
+        "youtube-proof.jpg"
+      );
+
+      formData.append(
+        "founderInstagramScreenshot",
+        state.shots.founder,
+        "founder-proof.jpg"
+      );
+
+
+      const response =
+        await fetch(
+          "/api/submissions",
+          {
+            method: "POST",
+            body: formData
+          }
+        );
+
+
+      const data =
+        await response
+          .json()
+          .catch(() => ({}));
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          data.error ||
+          "Could not submit right now."
+        );
+
+      }
+
+
+      state.refId =
+        data.submissionId;
+
+      renderSuccess();
+
+
+    } catch (error) {
+
+      state.submitting = false;
+
+      render();
+
+      showAlert(
+        error.message
+      );
+    }
+  }
+
+
+  /* =========================================
+     SUCCESS
+  ========================================= */
+
+  function renderSuccess() {
+
+    const app =
+      $("#app");
+
+
+    app.innerHTML = `
+
+      <main class="page success">
+
+        <header class="header">
+
+          <div class="brand">
+
+            <div class="brand-logo">
+              BW
+            </div>
+
+            <div class="brand-name">
+              Bill Wallah
+            </div>
+
+          </div>
+
+          <div class="reward-tag">
+            <span>₹</span>
+            ₹15 Reward
+          </div>
+
+        </header>
+
+
+        <section class="success-card">
+
+          <div class="success-icon">
+            ${successIcon()}
+          </div>
+
+
+          <h1>
+            Submission received
+          </h1>
+
+
+          <p>
+            Your screenshots have been submitted for manual
+            verification. We'll review your entry within
+            48 hours. If approved, the team will manually
+            send ₹15 to your submitted mobile number.
+          </p>
+
+
+          <div class="reference">
+
+            <small>
+              Submission ID
+            </small>
+
+            <strong>
+              ${esc(state.refId)}
+            </strong>
+
+            <small>
+              Keep this ID to check your status later.
+            </small>
+
+          </div>
+
+
+          <div class="details-list">
+
+            <div class="details-row">
+
+              <span>
+                Mobile number
+              </span>
+
+              <strong>
+                ${esc(state.mobile)}
+              </strong>
+
+            </div>
+
+
+            <div class="details-row">
+
+              <span>
+                Status
+              </span>
+
+              <strong>
+                Pending review
+              </strong>
+
+            </div>
+
+
+            <div class="details-row">
+
+              <span>
+                Reward
+              </span>
+
+              <strong>
+                ₹15 if approved
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div class="success-actions">
+
+            <button
+              class="secondary"
+              id="check-now">
+              Check status
+            </button>
+
+            <button
+              class="secondary"
+              id="new-entry">
+              Done
+            </button>
+
+          </div>
+
+        </section>
+
+      </main>
+    `;
+
+
+    $("#check-now").onclick = () => {
+
+      render();
+
+      $("#status-id").value =
+        state.refId || "";
+
+      $("#status-mobile").value =
+        state.mobile;
+
+      $("#status-btn").click();
+
+      document
+        .querySelector(".status-card")
+        ?.scrollIntoView({
+          behavior: "smooth"
+        });
+    };
+
+
+    $("#new-entry").onclick = () => {
+
+      state.shots = {
+        insta: null,
+        youtube: null,
+        founder: null
+      };
+
+      state.instagramUsername = "";
+      state.mobile = "";
+      state.submitting = false;
+      state.refId = null;
+
+      render();
+    };
+  }
+
+
+  /* =========================================
+     CHECK STATUS
+  ========================================= */
+
+  async function checkStatus() {
+
+    const id =
+      $("#status-id")
+        ?.value
+        .trim();
+
+    const mobile =
+      $("#status-mobile")
+        ?.value
+        .trim();
+
+
+    if (
+      !id ||
+      !/^[6-9]\d{9}$/.test(mobile)
+    ) {
+
+      return $("#status-result").innerHTML = `
+        <div class="alert error">
+          Enter a valid Submission ID and
+          10-digit Indian mobile number.
+        </div>
+      `;
+    }
+
+
+    const button =
+      $("#status-btn");
+
+    button.disabled = true;
+    button.textContent =
+      "Checking...";
+
+
+    try {
+
+      const response =
+        await fetch(
+          `/api/status?submissionId=${encodeURIComponent(id)}&mobileNumber=${encodeURIComponent(mobile)}`
+        );
+
+
+      const data =
+        await response
+          .json()
+          .catch(() => ({}));
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          data.error ||
+          "Could not check status."
+        );
+
+      }
+
+
+      const displayStatus =
+        data.status === "Pending"
+          ? "Under Review"
+          : data.status === "Approved"
+            ? "Approved — payout pending"
+            : data.status === "Rejected"
+              ? "Rejected"
+              : data.status;
+
+
+      $("#status-result").innerHTML = `
+
+        <div class="status-result-card">
+
+          <div class="status-row">
+
+            <span>
+              Submission ID
+            </span>
+
+            <strong>
+              ${esc(data.submissionId)}
+            </strong>
+
+          </div>
+
+
+          <div class="status-row">
+
+            <span>
+              Status
+            </span>
+
+            <span class="status-pill">
+              ${esc(displayStatus)}
+            </span>
+
+          </div>
+
+
+          <div class="status-row">
+
+            <span>
+              Submitted
+            </span>
+
+            <strong>
+              ${new Date(
+                data.submittedAt
+              ).toLocaleString()}
+            </strong>
+
+          </div>
+
+
+          <div class="status-row">
+
+            <span>
+              Payout
+            </span>
+
+            <strong>
+              ${
+                data.paymentStatus === "Paid"
+                  ? "Paid ₹15"
+                  : "Pending"
+              }
+            </strong>
+
+          </div>
+
+
+          ${
+            data.rejectionReason
+
+              ? `
+                <div class="status-row">
+
+                  <span>
+                    Reason
+                  </span>
+
+                  <strong>
+                    ${esc(
+                      data.rejectionReason
+                    )}
+                  </strong>
+
+                </div>
+              `
+
+              : ""
+          }
+
+        </div>
+      `;
+
+
+    } catch (error) {
+
+      $("#status-result").innerHTML = `
+        <div class="alert error">
+          ${esc(error.message)}
+        </div>
+      `;
+
+
+    } finally {
+
+      button.disabled = false;
+      button.textContent =
+        "Check status";
+    }
+  }
+
+
+  /* =========================================
+     START
+  ========================================= */
+
   render();
 
-  try{
-    const fd=new FormData();
-    fd.append("mobileNumber",state.mobile);
-    fd.append("instagramUsername",state.instagramUsername);
-    fd.append("confirm","on");
-    fd.append("instagramScreenshot",state.shots.insta,"instagram-proof.jpg");
-    fd.append("youtubeScreenshot",state.shots.youtube,"youtube-proof.jpg");
-    fd.append("founderInstagramScreenshot",state.shots.founder,"founder-proof.jpg");
-
-    const response=await fetch("/api/submissions",{method:"POST",body:fd});
-    const data=await response.json().catch(()=>({}));
-
-    if(!response.ok)throw new Error(data.error || "Could not submit right now.");
-
-    state.refId=data.submissionId;
-    renderSuccess();
-  }catch(err){
-    state.submitting=false;
-    render();
-    showAlert(err.message);
-  }
-}
-
-function renderSuccess(){
-  const app=$("#app");
-  app.innerHTML=`
-    <main class="wrap success-wrap">
-      <div class="brand-row">
-        <div class="brand-mark"><img src="${LOGO_SRC}" alt="Bill Wallah"></div>
-        <span>Bill Wallah</span>
-      </div>
-
-      <div class="card">
-      <div class="check-mark">${greenCheck()}</div>
-      <h2>Submission received</h2>
-      <p>Your screenshots have been submitted for manual verification. We'll review your entry within 48 hours. If approved, the team will manually send ₹15 to your submitted mobile number.</p>
-
-      <div class="reference-box">
-        <small>Submission ID</small>
-        <strong>${esc(state.refId)}</strong>
-        <small>Keep this ID for checking your status later.</small>
-      </div>
-
-      <div class="receipt-detail" style="margin-top:14px">
-        <div class="receipt-detail-row"><span>Mobile number</span><span>${esc(state.mobile)}</span></div>
-        <div class="receipt-detail-row"><span>Status</span><span>Pending review</span></div>
-        <div class="receipt-detail-row"><span>Reward</span><span>₹15 if approved</span></div>
-      </div>
-
-      <div class="action-row">
-        <button class="secondary-btn" id="check-now">Check status</button>
-        <button class="secondary-btn" id="new-entry">Done</button>
-      </div>
-      </div>
-    </main>
-  `;
-
-  $("#check-now").onclick=()=>{
-    render();
-    $("#status-id").value=state.refId||"";
-    $("#status-mobile").value=state.mobile;
-    $("#status-btn").click();
-    document.querySelector(".status-section")?.scrollIntoView({behavior:"smooth"});
-  };
-
-  $("#new-entry").onclick=()=>{
-    state.shots={insta:null,youtube:null,founder:null};
-    state.mobile="";
-    state.submitting=false;
-    state.refId=null;
-    render();
-  };
-}
-
-async function checkStatus(){
-  const id=$("#status-id")?.value.trim();
-  const mobile=$("#status-mobile")?.value.trim();
-
-  if(!id || !/^[6-9]\d{9}$/.test(mobile)){
-    return $("#status-result").innerHTML=`<div class="alert error">Enter a valid Submission ID and 10-digit Indian mobile number.</div>`;
-  }
-
-  const btn=$("#status-btn");
-  btn.disabled=true;
-  btn.textContent="Checking…";
-
-  try{
-    const response=await fetch(`/api/status?submissionId=${encodeURIComponent(id)}&mobileNumber=${encodeURIComponent(mobile)}`);
-    const data=await response.json().catch(()=>({}));
-
-    if(!response.ok)throw new Error(data.error || "Could not check status.");
-
-    const displayStatus=data.status==="Pending" ? "Under Review" : data.status==="Approved" ? "Approved — payout pending" : data.status==="Rejected" ? "Rejected" : data.status;
-    $("#status-result").innerHTML=`
-      <div class="status-card">
-        <div class="status-row"><span>Submission ID</span><strong>${esc(data.submissionId)}</strong></div>
-        <div class="status-row"><span>Status</span><span class="status-pill">${esc(displayStatus)}</span></div>
-        <div class="status-row"><span>Submitted</span><strong>${new Date(data.submittedAt).toLocaleString()}</strong></div>
-        <div class="status-row"><span>Payout</span><strong>${data.paymentStatus==="Paid" ? "Paid ₹15" : "Pending"}</strong></div>
-        ${data.rejectionReason ? `<div class="status-row"><span>Reason</span><strong>${esc(data.rejectionReason)}</strong></div>` : ""}
-      </div>
-    `;
-  }catch(err){
-    $("#status-result").innerHTML=`<div class="alert error">${esc(err.message)}</div>`;
-  }finally{
-    btn.disabled=false;
-    btn.textContent="Check";
-  }
-}
-
-render();
 </script>
-
-<style id="clean-theme-hero">
-.hero{
-  position:relative;
-  min-height:194px;
-  overflow:hidden;
-  border-radius:18px;
-  margin-bottom:14px;
-  padding:20px;
-  background:#155EEF;
-  box-shadow:0 8px 22px rgba(16,24,40,.10);
-}
-.hero:before{
-  content:"";
-  position:absolute;
-  width:150px;height:150px;
-  right:-65px;top:-70px;
-  border:24px solid rgba(255,255,255,.08);
-  border-radius:50%;
-}
-.hero:after{
-  content:"";
-  position:absolute;
-  width:90px;height:90px;
-  right:45px;bottom:-65px;
-  border:18px solid rgba(255,255,255,.06);
-  border-radius:50%;
-}
-.hero-copy{
-  position:relative;
-  z-index:5;
-  max-width:250px;
-  color:#fff;
-}
-.hero-kicker{
-  display:inline-flex;
-  align-items:center;
-  padding:5px 9px;
-  border:1px solid rgba(255,255,255,.28);
-  background:rgba(255,255,255,.10);
-  border-radius:999px;
-  color:#fff;
-  font-size:8.5px;
-  font-weight:800;
-  letter-spacing:.06em;
-}
-.hero h1{
-  font-family:Sora,sans-serif;
-  color:#fff;
-  font-size:27px;
-  line-height:1.08;
-  letter-spacing:-.045em;
-  margin:11px 0 6px;
-}
-.hero p{
-  color:rgba(255,255,255,.82);
-  font-size:10.5px;
-  line-height:1.45;
-  margin:0;
-}
-.paper{
-  position:absolute;
-  z-index:4;
-  right:13px;
-  top:46px;
-  width:157px;
-  height:91px;
-  background:#fff;
-  color:#123B9C;
-  transform:rotate(3deg);
-  clip-path:polygon(0 0,100% 0,100% 92%,96% 100%,91% 93%,86% 100%,81% 93%,76% 100%,71% 93%,66% 100%,61% 93%,56% 100%,51% 93%,46% 100%,41% 93%,36% 100%,31% 93%,26% 100%,21% 93%,16% 100%,11% 93%,6% 100%,0 93%);
-  box-shadow:0 10px 20px rgba(0,0,0,.18);
-  animation:none;
-}
-.paper-inner{text-align:center;padding:11px 8px}
-.paper-small{font-size:7px;font-weight:900;letter-spacing:.09em;color:#667085}
-.paper-amount{
-  font-family:Sora,sans-serif;
-  font-size:32px;
-  line-height:1;
-  font-weight:800;
-  color:#123B9C;
-  margin:4px 0;
-}
-.paper-free{
-  display:inline-block;
-  background:#FFC928;
-  color:#182230;
-  padding:3px 10px;
-  border-radius:999px;
-  font-size:8px;
-  font-weight:900;
-}
-.paper-shadow{
-  position:absolute;
-  z-index:2;
-  right:17px;
-  top:53px;
-  width:150px;height:83px;
-  background:rgba(0,0,0,.12);
-  filter:blur(8px);
-  transform:rotate(5deg);
-}
-.tape{
-  position:absolute;
-  z-index:6;
-  right:72px;
-  top:39px;
-  width:40px;height:14px;
-  background:#FFF0AC;
-  opacity:.88;
-  transform:rotate(4deg);
-}
-.hero-coin,.spark{display:none}
-
-@media(max-width:380px){
-  .hero{min-height:184px;padding:18px 16px}
-  .hero h1{font-size:25px}
-  .hero p{font-size:10px;max-width:205px}
-  .paper{width:146px;height:85px;right:8px;top:46px}
-  .paper-amount{font-size:29px}
-  .paper-shadow{right:12px;top:53px;width:140px}
-  .tape{right:67px;top:40px}
-}
-</style>
 
 </body>
 </html>

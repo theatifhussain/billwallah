@@ -862,8 +862,8 @@ function render(){
       <section class="hero" aria-label="Get fifteen rupees reward">
         <div class="hero-copy">
           <div class="hero-kicker"><span>✦</span> LIMITED REWARD</div>
-          <h1>Get ₹15<br>for 3 simple steps.</h1>
-          <p>Follow, capture your proof, submit — we verify it manually and send your reward if approved.</p>
+          <h1>Get ₹15 for Free</h1>
+          <p>Follow, capture your proof, submit — we <br> verify it manually and send your reward <br> if approved.</p>
         </div>
         <div class="paper-shadow"></div>
         <div class="paper">
@@ -1142,5 +1142,131 @@ async function checkStatus(){
 
 render();
 </script>
+
+<style id="clean-theme-hero">
+.hero{
+  position:relative;
+  min-height:194px;
+  overflow:hidden;
+  border-radius:18px;
+  margin-bottom:14px;
+  padding:20px;
+  background:#155EEF;
+  box-shadow:0 8px 22px rgba(16,24,40,.10);
+}
+.hero:before{
+  content:"";
+  position:absolute;
+  width:150px;height:150px;
+  right:-65px;top:-70px;
+  border:24px solid rgba(255,255,255,.08);
+  border-radius:50%;
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  width:90px;height:90px;
+  right:45px;bottom:-65px;
+  border:18px solid rgba(255,255,255,.06);
+  border-radius:50%;
+}
+.hero-copy{
+  position:relative;
+  z-index:5;
+  max-width:250px;
+  color:#fff;
+}
+.hero-kicker{
+  display:inline-flex;
+  align-items:center;
+  padding:5px 9px;
+  border:1px solid rgba(255,255,255,.28);
+  background:rgba(255,255,255,.10);
+  border-radius:999px;
+  color:#fff;
+  font-size:8.5px;
+  font-weight:800;
+  letter-spacing:.06em;
+}
+.hero h1{
+  font-family:Sora,sans-serif;
+  color:#fff;
+  font-size:27px;
+  line-height:1.08;
+  letter-spacing:-.045em;
+  margin:11px 0 6px;
+}
+.hero p{
+  color:rgba(255,255,255,.82);
+  font-size:10.5px;
+  line-height:1.45;
+  margin:0;
+}
+.paper{
+  position:absolute;
+  z-index:4;
+  right:13px;
+  top:46px;
+  width:157px;
+  height:91px;
+  background:#fff;
+  color:#123B9C;
+  transform:rotate(3deg);
+  clip-path:polygon(0 0,100% 0,100% 92%,96% 100%,91% 93%,86% 100%,81% 93%,76% 100%,71% 93%,66% 100%,61% 93%,56% 100%,51% 93%,46% 100%,41% 93%,36% 100%,31% 93%,26% 100%,21% 93%,16% 100%,11% 93%,6% 100%,0 93%);
+  box-shadow:0 10px 20px rgba(0,0,0,.18);
+  animation:none;
+}
+.paper-inner{text-align:center;padding:11px 8px}
+.paper-small{font-size:7px;font-weight:900;letter-spacing:.09em;color:#667085}
+.paper-amount{
+  font-family:Sora,sans-serif;
+  font-size:32px;
+  line-height:1;
+  font-weight:800;
+  color:#123B9C;
+  margin:4px 0;
+}
+.paper-free{
+  display:inline-block;
+  background:#FFC928;
+  color:#182230;
+  padding:3px 10px;
+  border-radius:999px;
+  font-size:8px;
+  font-weight:900;
+}
+.paper-shadow{
+  position:absolute;
+  z-index:2;
+  right:17px;
+  top:53px;
+  width:150px;height:83px;
+  background:rgba(0,0,0,.12);
+  filter:blur(8px);
+  transform:rotate(5deg);
+}
+.tape{
+  position:absolute;
+  z-index:6;
+  right:72px;
+  top:39px;
+  width:40px;height:14px;
+  background:#FFF0AC;
+  opacity:.88;
+  transform:rotate(4deg);
+}
+.hero-coin,.spark{display:none}
+
+@media(max-width:380px){
+  .hero{min-height:184px;padding:18px 16px}
+  .hero h1{font-size:25px}
+  .hero p{font-size:10px;max-width:205px}
+  .paper{width:146px;height:85px;right:8px;top:46px}
+  .paper-amount{font-size:29px}
+  .paper-shadow{right:12px;top:53px;width:140px}
+  .tape{right:67px;top:40px}
+}
+</style>
+
 </body>
 </html>
